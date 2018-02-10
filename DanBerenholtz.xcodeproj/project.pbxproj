@@ -13,6 +13,7 @@
 		BC174F21202FA64E00DA315F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC174F20202FA64E00DA315F /* Assets.xcassets */; };
 		BC174F24202FA64E00DA315F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC174F22202FA64E00DA315F /* LaunchScreen.storyboard */; };
 		BC174F27202FA64E00DA315F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC174F26202FA64E00DA315F /* main.m */; };
+		BC174F2F202FA72700DA315F /* ImageLoadingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC174F2E202FA72700DA315F /* ImageLoadingCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		BC174F23202FA64E00DA315F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC174F25202FA64E00DA315F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC174F26202FA64E00DA315F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BC174F2D202FA72700DA315F /* ImageLoadingCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageLoadingCollectionViewCell.h; sourceTree = "<group>"; };
+		BC174F2E202FA72700DA315F /* ImageLoadingCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageLoadingCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				BC174F1A202FA64E00DA315F /* ViewController.h */,
 				BC174F1B202FA64E00DA315F /* ViewController.m */,
 				BC174F1D202FA64E00DA315F /* Main.storyboard */,
+				BC174F2D202FA72700DA315F /* ImageLoadingCollectionViewCell.h */,
+				BC174F2E202FA72700DA315F /* ImageLoadingCollectionViewCell.m */,
 				BC174F20202FA64E00DA315F /* Assets.xcassets */,
 				BC174F22202FA64E00DA315F /* LaunchScreen.storyboard */,
 				BC174F25202FA64E00DA315F /* Info.plist */,
@@ -144,6 +149,7 @@
 			files = (
 				BC174F1C202FA64E00DA315F /* ViewController.m in Sources */,
 				BC174F27202FA64E00DA315F /* main.m in Sources */,
+				BC174F2F202FA72700DA315F /* ImageLoadingCollectionViewCell.m in Sources */,
 				BC174F19202FA64E00DA315F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
