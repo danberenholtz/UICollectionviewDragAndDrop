@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.collectionView.dragDelegate = self;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -32,6 +33,13 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 15;
+}
+-(NSArray<UIDragItem *> *)collectionView:(UICollectionView *)collectionView itemsForBeginningDragSession:(id<UIDragSession>)session atIndexPath:(NSIndexPath *)indexPath {
+    ImageLoadingCollectionViewCell *cell = (ImageLoadingCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    NSItemProvider *itemProvider = [[NSItemProvider alloc] initWithObject:cell.imageView.image];
+    UIDragItem *item = [[UIDragItem alloc] initWithItemProvider:itemProvider];
+    return @[item];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
