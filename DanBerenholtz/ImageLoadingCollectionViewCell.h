@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ImageLoadingCollectionViewCell : UICollectionViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property(strong, nonatomic) NSURL *url;
--(void)setupWithURL:(NSURL *)url;
+
 @end
