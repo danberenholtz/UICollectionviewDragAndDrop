@@ -57,7 +57,8 @@
                                         </constraints>
                                         <size key="customSize" width="96" height="96"/>
                                         <connections>
-                                            <outlet property="imageView" destination="nq6-Ep-t8l" id="NcA-xr-jIG"/>
+                                            <outlet property="deleteButton" destination="dBT-kK-ceZ" id="GFV-K9-OwG"/>
+                                            <outlet property="photoImageView" destination="nq6-Ep-t8l" id="NcA-xr-jIG"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -123,7 +124,7 @@
                                         </constraints>
                                         <size key="customSize" width="102" height="102"/>
                                         <connections>
-                                            <outlet property="imageView" destination="xji-MR-pwQ" id="BtM-mu-Rm7"/>
+                                            <outlet property="photoImageView" destination="xji-MR-pwQ" id="BtM-mu-Rm7"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

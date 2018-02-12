@@ -10,6 +10,9 @@
 #import "DragAndDropViewController.h"
 @interface ImageLoadingCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) DBPhoto *photo;
 @property (weak, nonatomic) DragAndDropViewController *delegate;
+@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+
 @end

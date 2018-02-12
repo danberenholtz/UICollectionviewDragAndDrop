@@ -15,7 +15,24 @@
  //   self.imageView.image = nil;
 }
 - (IBAction)deleteItemPressed:(id)sender {
-    [self.delegate deleteItem:self.imageView.image];
+    [self.delegate deleteItem:self.photoImageView.image];
+}
+
+- (void) setPhoto:(DBPhoto *)photo
+{
+    _photo = photo;
+    
+        NSURL *url = [NSURL URLWithString:photo.urlStandard];
+    
+        self.deleteButton.alpha = 0;
+        __weak ImageLoadingCollectionViewCell *weakSelf = self;
+    //
+        self.photoImageView.backgroundColor = [UIColor lightGrayColor];
+    //    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:photo.urlStandard] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    //        weakSelf.photoImageView.alpha = 1;
+    //        weakSelf.deleteButton.alpha = 1;
+    //
+    //    }];
 }
 
 @end

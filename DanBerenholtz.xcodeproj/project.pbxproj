@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78B69D712031B11600C5B843 /* DBPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B69D702031B11600C5B843 /* DBPhoto.m */; };
 		BC174F19202FA64E00DA315F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC174F18202FA64E00DA315F /* AppDelegate.m */; };
 		BC174F1F202FA64E00DA315F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC174F1D202FA64E00DA315F /* Main.storyboard */; };
 		BC174F21202FA64E00DA315F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC174F20202FA64E00DA315F /* Assets.xcassets */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78B69D702031B11600C5B843 /* DBPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBPhoto.m; sourceTree = "<group>"; };
+		78B69D732031B17C00C5B843 /* DBPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBPhoto.h; sourceTree = "<group>"; };
 		BC174F14202FA64E00DA315F /* DanBerenholtz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanBerenholtz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC174F17202FA64E00DA315F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BC174F18202FA64E00DA315F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -77,6 +80,8 @@
 				BC174F22202FA64E00DA315F /* LaunchScreen.storyboard */,
 				BC174F25202FA64E00DA315F /* Info.plist */,
 				BC174F26202FA64E00DA315F /* main.m */,
+				78B69D702031B11600C5B843 /* DBPhoto.m */,
+				78B69D732031B17C00C5B843 /* DBPhoto.h */,
 			);
 			path = DanBerenholtz;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78B69D712031B11600C5B843 /* DBPhoto.m in Sources */,
 				BC68F73720311CD7005A6825 /* DragAndDropViewController.m in Sources */,
 				BC174F27202FA64E00DA315F /* main.m in Sources */,
 				BC174F2F202FA72700DA315F /* ImageLoadingCollectionViewCell.m in Sources */,
@@ -293,7 +299,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CH2T3PYZJY;
+				DEVELOPMENT_TEAM = 4R48R23C3S;
 				INFOPLIST_FILE = DanBerenholtz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -312,7 +318,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CH2T3PYZJY;
+				DEVELOPMENT_TEAM = 4R48R23C3S;
 				INFOPLIST_FILE = DanBerenholtz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
