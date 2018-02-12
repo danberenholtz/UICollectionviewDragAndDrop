@@ -11,7 +11,10 @@
 #import "DBUser.h"
 
 @interface DragAndDropViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 -(void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath;
 -(void)deleteItem:(DBPhoto *)item;
+
 @end

@@ -92,7 +92,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     UIImage *img = [self.photos objectAtIndex:sourceIndexPath.row];
-
+    
     [self.photos removeObject:img];
     [self.photos insertObject:img atIndex:destinationIndexPath.row];
     
