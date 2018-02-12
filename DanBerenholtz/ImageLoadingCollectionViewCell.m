@@ -22,14 +22,13 @@
 - (void) setPhoto:(DBPhoto *)photo
 {
     _photo = photo;
-    self.deleteButton.alpha = 0;
-    __weak ImageLoadingCollectionViewCell *weakSelf = self;
+//    self.deleteButton.alpha = 0;
+//    __weak ImageLoadingCollectionViewCell *weakSelf = self;
     self.photoImageView.backgroundColor = [UIColor lightGrayColor];
     self.photoImageView.layer.cornerRadius = 40;
     self.photoImageView.clipsToBounds = YES;
     [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:photo.urlStandard] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        weakSelf.photoImageView.alpha = 1;
-        weakSelf.deleteButton.alpha = 1;
+//        weakSelf.deleteButton.alpha = 1;
     }];
 }
 
