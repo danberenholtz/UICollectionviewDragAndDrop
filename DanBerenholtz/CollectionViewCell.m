@@ -6,10 +6,10 @@
 //  Copyright © 2018 Josh Edson. All rights reserved.
 //
 
-#import "ImageLoadingCollectionViewCell.h"
+#import "CollectionViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@implementation ImageLoadingCollectionViewCell
+@implementation CollectionViewCell
 
 -(void)prepareForReuse {
     [super prepareForReuse];

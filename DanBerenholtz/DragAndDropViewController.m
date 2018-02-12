@@ -7,7 +7,7 @@
 //
 
 #import "DragAndDropViewController.h"
-#import "ImageLoadingCollectionViewCell.h"
+#import "CollectionViewCell.h"
 #import "DanBerenholtz-Swift.h"
 
 @interface DragAndDropViewController ()<CustomCollectionViewLayoutDelegate>
@@ -60,7 +60,7 @@
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    ImageLoadingCollectionViewCell *cell = (ImageLoadingCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    CollectionViewCell *cell = (CollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     cell.delegate = self;
     
     DBPhoto *photo;
