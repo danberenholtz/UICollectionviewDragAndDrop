@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		617F1429ECA7C2AD725BF323 /* Pods_DanBerenholtz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BB9664EF2600E73A0D6978 /* Pods_DanBerenholtz.framework */; };
+		7884E14C2031D7F000D01D1F /* CancelButton-Upwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 7884E14B2031D7F000D01D1F /* CancelButton-Upwork.png */; };
 		78B69D712031B11600C5B843 /* DBPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B69D702031B11600C5B843 /* DBPhoto.m */; };
 		78B69D762031BAA900C5B843 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B69D752031BAA900C5B843 /* ImageIO.framework */; };
 		78B69D7C2031C84C00C5B843 /* DBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B69D7B2031C84C00C5B843 /* DBUser.m */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7884E14B2031D7F000D01D1F /* CancelButton-Upwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CancelButton-Upwork.png"; sourceTree = "<group>"; };
 		78B69D702031B11600C5B843 /* DBPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBPhoto.m; sourceTree = "<group>"; };
 		78B69D732031B17C00C5B843 /* DBPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBPhoto.h; sourceTree = "<group>"; };
 		78B69D752031BAA900C5B843 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -115,6 +117,7 @@
 				78B69D732031B17C00C5B843 /* DBPhoto.h */,
 				78B69D7A2031C83D00C5B843 /* DBUser.h */,
 				78B69D7B2031C84C00C5B843 /* DBUser.m */,
+				7884E14B2031D7F000D01D1F /* CancelButton-Upwork.png */,
 			);
 			path = DanBerenholtz;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC174F24202FA64E00DA315F /* LaunchScreen.storyboard in Resources */,
+				7884E14C2031D7F000D01D1F /* CancelButton-Upwork.png in Resources */,
 				BC174F21202FA64E00DA315F /* Assets.xcassets in Resources */,
 				BC174F1F202FA64E00DA315F /* Main.storyboard in Resources */,
 			);

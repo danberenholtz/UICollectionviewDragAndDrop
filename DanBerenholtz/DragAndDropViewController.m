@@ -68,17 +68,16 @@
     
     return cell;
 }
--(void)deleteItem:(UIImage *)item {
-//
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.images indexOfObject:item] inSection:0];
-//    CustomCollectionViewLayout *layout = (CustomCollectionViewLayout *)self.collectionView.collectionViewLayout;
-//    layout.cache = @[];
-//    [self.collectionView performBatchUpdates:^{
-//    [self.images removeObject:item];
-//    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
-//    } completion:nil];
-//
-//    [self.collectionView.collectionViewLayout invalidateLayout];
+-(void)deleteItem:(DBPhoto *)item {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.photos indexOfObject:item] inSection:0];
+    CustomCollectionViewLayout *layout = (CustomCollectionViewLayout *)self.collectionView.collectionViewLayout;
+    layout.cache = @[];
+    [self.collectionView performBatchUpdates:^{
+    [self.photos removeObject:item];
+    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+    } completion:nil];
+
+    [self.collectionView.collectionViewLayout invalidateLayout];
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView columnSpanForPhotoAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
@@ -90,11 +89,10 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    
-    //    UIImage *img = [self.images objectAtIndex:sourceIndexPath.row];
-    //
-    //    [self.images removeObject:img];
-    //    [self.images insertObject:img atIndex:destinationIndexPath.row];
+    UIImage *img = [self.photos objectAtIndex:sourceIndexPath.row];
+
+    [self.photos removeObject:img];
+    [self.photos insertObject:img atIndex:destinationIndexPath.row];
     
     [self.collectionView.collectionViewLayout invalidateLayout];
 }

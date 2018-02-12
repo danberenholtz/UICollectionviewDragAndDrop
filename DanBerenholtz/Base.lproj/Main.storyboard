@@ -34,11 +34,16 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBT-kK-ceZ">
-                                                    <rect key="frame" x="0.0" y="66" width="30" height="30"/>
-                                                    <color key="backgroundColor" red="0.96078431369999995" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="X">
-                                                        <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBT-kK-ceZ">
+                                                    <rect key="frame" x="0.0" y="56" width="40" height="40"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="UAQ-Vc-cuS"/>
+                                                        <constraint firstAttribute="height" constant="40" id="Y2j-7k-zgx"/>
+                                                    </constraints>
+                                                    <state key="normal" title="X" backgroundImage="CancelButton-Upwork.png">
+                                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="deleteItemPressed:" destination="HI8-AC-8Yg" eventType="touchUpInside" id="8mp-0Q-wqY"/>
@@ -47,13 +52,12 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="dBT-kK-ceZ" firstAttribute="leading" secondItem="HI8-AC-8Yg" secondAttribute="leading" id="I17-k7-7P7"/>
-                                            <constraint firstAttribute="bottom" secondItem="dBT-kK-ceZ" secondAttribute="bottom" id="LWX-jP-Iua"/>
+                                            <constraint firstAttribute="bottom" secondItem="dBT-kK-ceZ" secondAttribute="bottom" id="DSf-N5-gmp"/>
+                                            <constraint firstItem="dBT-kK-ceZ" firstAttribute="leading" secondItem="HI8-AC-8Yg" secondAttribute="leading" id="HXs-57-ZMI"/>
                                             <constraint firstAttribute="trailing" secondItem="nq6-Ep-t8l" secondAttribute="trailing" id="S3y-Na-tIu"/>
                                             <constraint firstItem="nq6-Ep-t8l" firstAttribute="top" secondItem="HI8-AC-8Yg" secondAttribute="top" id="TSO-ir-MFf"/>
                                             <constraint firstAttribute="bottom" secondItem="nq6-Ep-t8l" secondAttribute="bottom" id="caq-To-77A"/>
                                             <constraint firstItem="nq6-Ep-t8l" firstAttribute="leading" secondItem="HI8-AC-8Yg" secondAttribute="leading" id="o4Z-EK-xqD"/>
-                                            <constraint firstItem="dBT-kK-ceZ" firstAttribute="leading" secondItem="HI8-AC-8Yg" secondAttribute="leading" id="ysA-Gw-dg7"/>
                                         </constraints>
                                         <size key="customSize" width="96" height="96"/>
                                         <connections>
@@ -152,4 +156,7 @@
             <point key="canvasLocation" x="137" y="797"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CancelButton-Upwork.png" width="59" height="59"/>
+    </resources>
 </document>
