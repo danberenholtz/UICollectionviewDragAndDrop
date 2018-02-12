@@ -10,8 +10,6 @@
 
 @interface DBPhoto : NSObject
 
-//@property (nonatomic, retain) NSDate * createdTime;
-//@property (nonatomic, retain) NSString * photoID;
 @property (nonatomic, retain) NSString * urlStandard;
 
 @end
