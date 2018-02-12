@@ -83,5 +83,4 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     func collectionView(_ collectionView:UICollectionView, heightForPhotoAtIndexPath:NSIndexPath) -> CGFloat
     func collectionView(_ collectionView:UICollectionView, columnSpanForPhotoAtIndexPath:NSIndexPath) -> Int
     var collectionView:UICollectionView {get}
-    
 }

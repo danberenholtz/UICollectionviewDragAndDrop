@@ -28,6 +28,7 @@
     
     self.longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressPressed:)];
     [self.collectionView addGestureRecognizer:self.longPress];
+    self.collectionView.pagingEnabled = NO;
     
     DBUser *user = [[DBUser alloc] init];
     self.photos = user.photos;
@@ -79,6 +80,7 @@
 
     [self.collectionView.collectionViewLayout invalidateLayout];
 }
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView columnSpanForPhotoAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         return 2;
