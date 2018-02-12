@@ -9,9 +9,8 @@
 #import "DragAndDropViewController.h"
 #import "ImageLoadingCollectionViewCell.h"
 #import "DanBerenholtz-Swift.h"
+
 @interface DragAndDropViewController ()<CustomCollectionViewLayoutDelegate>
-//@property (nonnull, strong) NSMutableArray *images;
-//@property (nonatomic, strong) NSArray *imageURLS;
 
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPress;
 @property (nonatomic, strong) NSMutableArray *photos;
@@ -23,10 +22,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     CustomCollectionViewLayout *layout = (CustomCollectionViewLayout *)self.collectionView.collectionViewLayout;
     layout.delegate = self;
+    
     self.longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressPressed:)];
     [self.collectionView addGestureRecognizer:self.longPress];
+    
+    DBUser *user = [[DBUser alloc] init];
+    self.photos = user.photos;
 }
 
 -(void)longPressPressed:(UILongPressGestureRecognizer *) recognizer {
@@ -57,11 +61,9 @@
     
     ImageLoadingCollectionViewCell *cell = (ImageLoadingCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     cell.delegate = self;
-//    cell.imageView.image = [self.images objectAtIndex:indexPath.row];
     
-    DBPhoto *photo = [[DBPhoto alloc] init];
-    photo.urlStandard = @"https://scontent.ftlv6-1.fna.fbcdn.net/v/t31.0-8/735951_10100511094100202_1199005628_o.jpg?oh=eb6115fd001db111e376263c713a0e41&oe=5B141744";
-//    photo = self.photos[indexPath.row];
+    DBPhoto *photo;
+    photo = self.photos[indexPath.row];
     cell.photo = photo;
     
     return cell;
@@ -102,7 +104,7 @@
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return 1;//self.imageURLS.count;
+    return self.photos.count;
 }
 - (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
     NSLog(@"To be implemented");

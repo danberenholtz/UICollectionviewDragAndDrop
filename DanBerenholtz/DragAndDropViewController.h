@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DBPhoto.h"
+#import "DBUser.h"
 
 @interface DragAndDropViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

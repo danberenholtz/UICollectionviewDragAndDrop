@@ -10,6 +10,7 @@
 		617F1429ECA7C2AD725BF323 /* Pods_DanBerenholtz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BB9664EF2600E73A0D6978 /* Pods_DanBerenholtz.framework */; };
 		78B69D712031B11600C5B843 /* DBPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B69D702031B11600C5B843 /* DBPhoto.m */; };
 		78B69D762031BAA900C5B843 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B69D752031BAA900C5B843 /* ImageIO.framework */; };
+		78B69D7C2031C84C00C5B843 /* DBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B69D7B2031C84C00C5B843 /* DBUser.m */; };
 		BC174F19202FA64E00DA315F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC174F18202FA64E00DA315F /* AppDelegate.m */; };
 		BC174F1F202FA64E00DA315F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC174F1D202FA64E00DA315F /* Main.storyboard */; };
 		BC174F21202FA64E00DA315F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC174F20202FA64E00DA315F /* Assets.xcassets */; };
@@ -24,6 +25,8 @@
 		78B69D702031B11600C5B843 /* DBPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBPhoto.m; sourceTree = "<group>"; };
 		78B69D732031B17C00C5B843 /* DBPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBPhoto.h; sourceTree = "<group>"; };
 		78B69D752031BAA900C5B843 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		78B69D7A2031C83D00C5B843 /* DBUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUser.h; sourceTree = "<group>"; };
+		78B69D7B2031C84C00C5B843 /* DBUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUser.m; sourceTree = "<group>"; };
 		B3BB9664EF2600E73A0D6978 /* Pods_DanBerenholtz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DanBerenholtz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC174F14202FA64E00DA315F /* DanBerenholtz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanBerenholtz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC174F17202FA64E00DA315F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 				BC174F26202FA64E00DA315F /* main.m */,
 				78B69D702031B11600C5B843 /* DBPhoto.m */,
 				78B69D732031B17C00C5B843 /* DBPhoto.h */,
+				78B69D7A2031C83D00C5B843 /* DBUser.h */,
+				78B69D7B2031C84C00C5B843 /* DBUser.m */,
 			);
 			path = DanBerenholtz;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				BC174F2F202FA72700DA315F /* ImageLoadingCollectionViewCell.m in Sources */,
 				BC68F7322030F93C005A6825 /* CustomCollectionViewLayout.swift in Sources */,
 				BC174F19202FA64E00DA315F /* AppDelegate.m in Sources */,
+				78B69D7C2031C84C00C5B843 /* DBUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
