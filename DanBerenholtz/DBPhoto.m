@@ -6,4 +6,8 @@
 //  Copyright © 2018 Josh Edson. All rights reserved.
 //
 
+#import "DBPhoto.h"
 
+@implementation DBPhoto
+
+@end

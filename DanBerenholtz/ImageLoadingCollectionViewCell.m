@@ -7,6 +7,7 @@
 //
 
 #import "ImageLoadingCollectionViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation ImageLoadingCollectionViewCell
 
@@ -22,17 +23,14 @@
 {
     _photo = photo;
     
-        NSURL *url = [NSURL URLWithString:photo.urlStandard];
-    
-        self.deleteButton.alpha = 0;
-        __weak ImageLoadingCollectionViewCell *weakSelf = self;
-    //
-        self.photoImageView.backgroundColor = [UIColor lightGrayColor];
-    //    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:photo.urlStandard] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-    //        weakSelf.photoImageView.alpha = 1;
-    //        weakSelf.deleteButton.alpha = 1;
-    //
-    //    }];
+//        NSURL *url = [NSURL URLWithString:photo.urlStandard];
+    self.deleteButton.alpha = 0;
+    __weak ImageLoadingCollectionViewCell *weakSelf = self;
+    self.photoImageView.backgroundColor = [UIColor lightGrayColor];
+    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:photo.urlStandard] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        weakSelf.photoImageView.alpha = 1;
+        weakSelf.deleteButton.alpha = 1;
+    }];
 }
 
 @end

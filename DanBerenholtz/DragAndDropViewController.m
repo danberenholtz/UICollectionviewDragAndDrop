@@ -21,25 +21,10 @@
 
 @implementation DragAndDropViewController
 
-//-(void)loadImages {
-//
-//    for (NSString *photoUrl in self.imageURLS) {
-////        NSURL *url = [NSURL URLWithString:u];
-////        NSData *data = [NSData dataWithContentsOfURL:url];
-////        UIImage *image = [UIImage imageWithData:data];
-//        [self.images addObject:photoUrl];
-//    }
-//}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.images = [[NSMutableArray alloc] init];
-    
-CustomCollectionViewLayout *layout = (CustomCollectionViewLayout *)self.collectionView.collectionViewLayout;
+    CustomCollectionViewLayout *layout = (CustomCollectionViewLayout *)self.collectionView.collectionViewLayout;
     layout.delegate = self;
-    
-
-//    [self loadImages];
     self.longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressPressed:)];
     [self.collectionView addGestureRecognizer:self.longPress];
 }
@@ -74,7 +59,7 @@ CustomCollectionViewLayout *layout = (CustomCollectionViewLayout *)self.collecti
     cell.delegate = self;
 //    cell.imageView.image = [self.images objectAtIndex:indexPath.row];
     
-    DBPhoto *photo;
+    DBPhoto *photo = [[DBPhoto alloc] init];
     photo.urlStandard = @"https://scontent.ftlv6-1.fna.fbcdn.net/v/t31.0-8/735951_10100511094100202_1199005628_o.jpg?oh=eb6115fd001db111e376263c713a0e41&oe=5B141744";
 //    photo = self.photos[indexPath.row];
     cell.photo = photo;
@@ -92,8 +77,6 @@ CustomCollectionViewLayout *layout = (CustomCollectionViewLayout *)self.collecti
 //    } completion:nil];
 //
 //    [self.collectionView.collectionViewLayout invalidateLayout];
-    
-
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView columnSpanForPhotoAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
@@ -112,9 +95,8 @@ CustomCollectionViewLayout *layout = (CustomCollectionViewLayout *)self.collecti
     //    [self.images insertObject:img atIndex:destinationIndexPath.row];
     
     [self.collectionView.collectionViewLayout invalidateLayout];
-    
-    
 }
+
 -(BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
     return TRUE;
 }
