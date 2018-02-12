@@ -1,21 +1,24 @@
 //
-//  ViewController.m
+//  DragAndDropViewController.m
 //  DanBerenholtz
 //
-//  Created by Josh Edson on 2/10/18.
+//  Created by Josh Edson on 2/11/18.
 //  Copyright © 2018 Josh Edson. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "DragAndDropViewController.h"
 #import "ImageLoadingCollectionViewCell.h"
-@interface ViewController ()
-@property (nonatomic, strong) NSArray *imageURLS;
+#import "DanBerenholtz-Swift.h"
+@interface DragAndDropViewController ()<CustomCollectionViewLayoutDelegate>
 @property (nonnull, strong) NSMutableArray *images;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPress;
+@property (nonatomic, strong) NSArray *imageURLS;
 @end
 
-@implementation ViewController
+@implementation DragAndDropViewController
 
 -(void)loadImages {
+    
     for (NSString *u in self.imageURLS) {
         NSURL *url = [NSURL URLWithString:u];
         NSData *data = [NSData dataWithContentsOfURL:url];
@@ -27,6 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.images = [[NSMutableArray alloc] init];
+    
+CustomCollectionViewLayout *layout = (CustomCollectionViewLayout *)self.collectionView.collectionViewLayout;
+    layout.delegate = self;
     
     self.imageURLS = @[@"https://scontent.ftlv6-1.fna.fbcdn.net/v/t31.0-8/10669078_10101230565214322_4328930282122468756_o.jpg?oh=b40b325d372de7f587a677bd09381313&oe=5B0C0AB7",
                        @"https://scontent.ftlv6-1.fna.fbcdn.net/v/t31.0-8/10293688_10101055714676202_7005288717350493658_o.jpg?oh=5ea854944710d5067552252027660e4f&oe=5B24DCF7",
@@ -44,66 +50,85 @@
                        @"https://scontent.ftlv5-1.fna.fbcdn.net/v/t1.0-9/17862275_10102421512915582_5626623808457113757_n.jpg?oh=7c3fc27e8466c43ad99e3cd6b4d15f20&oe=5B0ECD11"
                        ];
     [self loadImages];
-
-    self.collectionView.dragDelegate = self;
-    self.collectionView.dropDelegate = self;
+    self.longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressPressed:)];
+    [self.collectionView addGestureRecognizer:self.longPress];
+   
+    
 }
+-(void)longPressPressed:(UILongPressGestureRecognizer *) recognizer {
+    NSIndexPath *selectedIndexPath = [self.collectionView indexPathForItemAtPoint:[recognizer locationInView:self.collectionView]];
+    if (selectedIndexPath == nil) {
+        return;
+    }
+    
+    
+    if(recognizer.state == UIGestureRecognizerStateBegan) {
+        [self.collectionView beginInteractiveMovementForItemAtIndexPath:selectedIndexPath];
+    }
+    else if(recognizer.state == UIGestureRecognizerStateChanged) {
+        [self.collectionView updateInteractiveMovementTargetPosition:[recognizer locationInView:self.collectionView]];
+    }
+    else if(recognizer.state == UIGestureRecognizerStateEnded) {
 
+         [self.collectionView endInteractiveMovement];
+         [self.collectionView.collectionViewLayout invalidateLayout];
+
+    }
+    else {
+        [self.collectionView cancelInteractiveMovement];
+    }
+    
+}
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     
     return 1;
 }
-
--(BOOL)collectionView:(UICollectionView *)collectionView canHandleDropSession:(id<UIDropSession>)session
-{
-    return TRUE;
-}
-
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     ImageLoadingCollectionViewCell *cell = (ImageLoadingCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-
+    cell.delegate = self;
     cell.imageView.image = [self.images objectAtIndex:indexPath.row];
-
+    
     return cell;
 }
+-(void)deleteItem:(UIImage *)item {
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.images indexOfObject:item] inSection:0];
+    CustomCollectionViewLayout *layout = (CustomCollectionViewLayout *)self.collectionView.collectionViewLayout;
+    layout.cache = @[];
+    [self.collectionView performBatchUpdates:^{
+    [self.images removeObject:item];
+    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+    } completion:nil];
 
+    [self.collectionView.collectionViewLayout invalidateLayout];
+    
+
+}
+-(NSInteger)collectionView:(UICollectionView *)collectionView columnSpanForPhotoAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return 2;
+    }
+    else {
+        return 1;
+    }
+}
+-(void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+
+    UIImage *img = [self.images objectAtIndex:sourceIndexPath.row];
+
+    [self.images removeObject:img];
+    [self.images insertObject:img atIndex:destinationIndexPath.row];
+    
+    [self.collectionView.collectionViewLayout invalidateLayout];
+
+
+}
+-(BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
+    return TRUE;
+}
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
     return self.images.count;
 }
-
--(UIDropProposal *)collectionView:(UICollectionView *)collectionView dropSessionDidUpdate:(nonnull id<UIDropSession>)session withDestinationIndexPath:(nullable NSIndexPath *)destinationIndexPath {
-    
-    UICollectionViewDropProposal *dropProposal = [[UICollectionViewDropProposal alloc] initWithDropOperation:UIDropOperationMove intent:UICollectionViewDropIntentInsertAtDestinationIndexPath];
-    
-    return dropProposal;
-
-}
-
--(void)collectionView:(UICollectionView *)collectionView performDropWithCoordinator:(id<UICollectionViewDropCoordinator>)coordinator {
-    
-    UIDragItem *dragItem = coordinator.items.firstObject.dragItem;
-    
-    [collectionView performBatchUpdates:^{
-        NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:[self.images indexOfObject:dragItem.localObject] inSection:0];
-        [self.images removeObject:dragItem.localObject];
-        [self.images insertObject:dragItem.localObject atIndex:coordinator.destinationIndexPath.row];
-        
-        [collectionView moveItemAtIndexPath:oldIndexPath toIndexPath:coordinator.destinationIndexPath];
-
-    } completion:nil];
-    
-    [coordinator dropItem:coordinator.items.firstObject.dragItem toItemAtIndexPath:coordinator.destinationIndexPath];
-    
-}
--(NSArray<UIDragItem *> *)collectionView:(UICollectionView *)collectionView itemsForBeginningDragSession:(id<UIDragSession>)session atIndexPath:(NSIndexPath *)indexPath {
-
-    NSItemProvider *itemProvider = [[NSItemProvider alloc] initWithObject:self.images[indexPath.row]];
-    UIDragItem *item = [[UIDragItem alloc] initWithItemProvider:itemProvider];
-    item.localObject = self.images[indexPath.row];
-    return @[item];
-
-}
-
 @end

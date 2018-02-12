@@ -11,7 +11,11 @@
 @implementation ImageLoadingCollectionViewCell
 
 -(void)prepareForReuse {
-    self.imageView.image = nil;
+    [super prepareForReuse];
+ //   self.imageView.image = nil;
+}
+- (IBAction)deleteItemPressed:(id)sender {
+    [self.delegate deleteItem:self.imageView.image];
 }
 
 @end
