@@ -13,6 +13,10 @@
 
 -(void)prepareForReuse {
     [super prepareForReuse];
+    self.contentView.layer.shadowRadius = 0.0;
+    self.contentView.layer.shadowOpacity = 0.0;
+    self.contentView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+    self.contentView.layer.shadowColor = [UIColor clearColor].CGColor;
  //   self.imageView.image = nil;
 }
 - (IBAction)deleteItemPressed:(id)sender {

@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPress;
 @property (nonatomic, strong) NSMutableArray *photos;
 @property (nonatomic) DBPhoto *photo;
+@property (nonatomic) BOOL isReordering;
 
 @end
 
@@ -22,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isReordering = false;
     
     CustomCollectionViewLayout *layout = (CustomCollectionViewLayout *)self.collectionView.collectionViewLayout;
     layout.delegate = self;
@@ -40,18 +42,55 @@
         return;
     }
     
+    CollectionViewCell *cell = (CollectionViewCell *)[self.collectionView cellForItemAtIndexPath:selectedIndexPath];
+    
     if(recognizer.state == UIGestureRecognizerStateBegan) {
+        if (self.isReordering) return;
+        
+        self.isReordering = true;
+        cell.layer.shadowRadius = 2.0;
+        cell.layer.shadowColor = [UIColor blackColor].CGColor;
+        cell.layer.shadowOpacity = 0.3;
+        cell.layer.shadowOffset = CGSizeMake(3.0, 3.0);
+        cell.clipsToBounds = false;
+        [UIView animateWithDuration:0.15 animations:^{
+            cell.transform = CGAffineTransformMakeScale(1.3, 1.3);
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.1 animations:^{
+                    cell.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                    }];
+                }];
         [self.collectionView beginInteractiveMovementForItemAtIndexPath:selectedIndexPath];
     }
     else if(recognizer.state == UIGestureRecognizerStateChanged) {
         [self.collectionView updateInteractiveMovementTargetPosition:[recognizer locationInView:self.collectionView]];
     }
     else if(recognizer.state == UIGestureRecognizerStateEnded) {
-         [self.collectionView endInteractiveMovement];
-         [self.collectionView.collectionViewLayout invalidateLayout];
+//        cell.contentView.layer.shadowRadius = 0.0;
+//        cell.contentView.layer.shadowOpacity = 0.0;
+//        cell.contentView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+//        cell.contentView.layer.shadowColor = [UIColor clearColor].CGColor;
+        
+        cell.layer.shadowRadius = 0.0;
+        cell.layer.shadowOpacity = 0.0;
+        cell.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        cell.layer.shadowColor = [UIColor clearColor].CGColor;
+//         [self.collectionView endInteractiveMovement];
+//         [self.collectionView.collectionViewLayout invalidateLayout];
+//        cell.layer.shadowRadius = 0.0;
+//        cell.layer.shadowColor = [UIColor clearColor].CGColor;
+        cell.clipsToBounds = true;
+        [self.collectionView endInteractiveMovement];
+        self.isReordering = false;
     }
     else {
+        cell.layer.shadowRadius = 0.0;
+        cell.layer.shadowOpacity = 0.0;
+        cell.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        cell.layer.shadowColor = [UIColor clearColor].CGColor;
+        cell.clipsToBounds = true;
         [self.collectionView cancelInteractiveMovement];
+        self.isReordering = false;
     }
     
 }
