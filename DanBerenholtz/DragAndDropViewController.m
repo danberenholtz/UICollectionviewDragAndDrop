@@ -66,19 +66,11 @@
         [self.collectionView updateInteractiveMovementTargetPosition:[recognizer locationInView:self.collectionView]];
     }
     else if(recognizer.state == UIGestureRecognizerStateEnded) {
-//        cell.contentView.layer.shadowRadius = 0.0;
-//        cell.contentView.layer.shadowOpacity = 0.0;
-//        cell.contentView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-//        cell.contentView.layer.shadowColor = [UIColor clearColor].CGColor;
-        
+
         cell.layer.shadowRadius = 0.0;
         cell.layer.shadowOpacity = 0.0;
         cell.layer.shadowOffset = CGSizeMake(0.0, 0.0);
         cell.layer.shadowColor = [UIColor clearColor].CGColor;
-//         [self.collectionView endInteractiveMovement];
-//         [self.collectionView.collectionViewLayout invalidateLayout];
-//        cell.layer.shadowRadius = 0.0;
-//        cell.layer.shadowColor = [UIColor clearColor].CGColor;
         cell.clipsToBounds = true;
         [self.collectionView endInteractiveMovement];
         self.isReordering = false;
@@ -92,7 +84,6 @@
         [self.collectionView cancelInteractiveMovement];
         self.isReordering = false;
     }
-    
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -141,6 +132,7 @@
 -(BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
     return TRUE;
 }
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
     return self.photos.count;

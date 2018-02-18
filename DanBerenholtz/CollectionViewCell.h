@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DragAndDropViewController.h"
+
 @interface CollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) DBPhoto *photo;
